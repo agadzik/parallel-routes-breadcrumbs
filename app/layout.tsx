@@ -15,7 +15,7 @@ export default function RootLayout({
   breadcrumbs,
 }: Readonly<{
   children: React.ReactNode;
-  breadcrumbs?: React.ReactNode;
+  breadcrumbs: React.ReactNode;
 }>) {
   return (
     <html lang="en">
