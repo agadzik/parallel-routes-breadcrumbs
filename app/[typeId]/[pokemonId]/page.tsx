@@ -14,15 +14,24 @@ export default async function PokemonPage({ params }: PageProps) {
   const { id, name, stats } = await getPokemon(pokemonId);
 
   return (
-    <div className="flex flex-col gap-4 p-4">
-      <H1>Pokemon: {name}</H1>
-      <ul>
-        {stats.map(({ id, name, baseStat }) => (
-          <li key={id}>
-            <Link href={`/${typeId}/${pokemonId}/${id}`}>{name}</Link>
+    <>
+      <nav className="p-4 border-b">
+        <ul className="flex flex-row gap-2">
+          <li>
+            <Link href={`/${typeId}/${pokemonId}/about`}>About</Link>
           </li>
-        ))}
-      </ul>
-    </div>
+        </ul>
+      </nav>
+      <div className="flex flex-col gap-4 p-4">
+        <H1>Pokemon: {name}</H1>
+        <ul>
+          {stats.map(({ id, name, baseStat }) => (
+            <li key={id}>
+              <Link href={`/${typeId}/${pokemonId}/${id}`}>{name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

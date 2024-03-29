@@ -12,15 +12,24 @@ export default async function PokemonTypePage({ params }: PageProps) {
   const { id, name, pokemon } = await getPokemonType(typeId);
 
   return (
-    <div className="flex flex-col gap-4 p-4">
-      <H1>Pokemon Type: {name}</H1>
-      <ul>
-        {pokemon.map(({ id, name }) => (
-          <li key={id}>
-            <Link href={`/${typeId}/${id}`}>{name}</Link>
+    <>
+      <nav className="p-4 border-b">
+        <ul className="flex flex-row gap-2">
+          <li>
+            <Link href={`/${typeId}/about`}>About</Link>
           </li>
-        ))}
-      </ul>
-    </div>
+        </ul>
+      </nav>
+      <div className="flex flex-col gap-4 p-4">
+        <H1>Pokemon Type: {name}</H1>
+        <ul>
+          {pokemon.map(({ id, name }) => (
+            <li key={id}>
+              <Link href={`/${typeId}/${id}`}>{name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

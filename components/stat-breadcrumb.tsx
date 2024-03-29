@@ -25,7 +25,9 @@ async function AsyncStatBreadcrumb({ typeId, pokemonId, statId }: Props) {
 
   return (
     <BreadcrumbItem>
-      {stat.name}
+      <BreadcrumbLink href={`/${typeId}/${pokemonId}/${statId}`}>
+        {stat.name}
+      </BreadcrumbLink>
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center gap-1">
           <ChevronDown />
